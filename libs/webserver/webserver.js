@@ -74,6 +74,8 @@ class Webserver {
         req.session.uid = authCookie.id
       }
 
+      console.log(routeParsed)
+
       routeParsed.view(req, res)
     } else {
       res.end('404')

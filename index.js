@@ -4,99 +4,52 @@ const { Webserver } = require('./libs/webserver/webserver.js')
 
 const helpers = require('./libs/helpers/helpers.js')
 
-const views = {
-  signIn: require('./libs/views/sign-in/index.js'),
-  signUp: require('./libs/views/sign-up/index.js'),
-  newBlog: require('./libs/views/new-blog/view.new-blog.js'),
-  articles: require('./libs/views/articles/view.articles.js'),
-  article: require('./libs/views/article/view.article.js'),
-  preview: require('./libs/views/preview/view.preview.js'),
-  projects: require('./libs/views/projects/view.projects.js'),
-  tasks: require('./libs/views/tasks/view.tasks.js'),
-  settings: require('./libs/views/settings/view.settings.js'),
-  reports: require('./libs/views/reports/view.reports.js')
-}
 process.stdout.write('\033c');
+
+const viewFolders = fs.readdirSync('./views/')
+
+let views = {}
+
+viewFolders.forEach(folder => {
+  const viewsForFolder = fs.readdirSync('./views/'+ folder +'/').map(file => file.split('.')[0]).filter(file => file != '')
+
+  viewsForFolder.forEach(file => {
+    views[file] = require('./views/' + folder + '/'+ file +'.js').default
+  })
+  
+})
 
 
 const routes = [
   {
     pattern: '/sign-in/',
-    view: views.signIn.main
+    view: views['sign-in-main']
   }, {
-    pattern: '/sign-up/',
-    view: views.signUp.main
+    pattern: '/new-account/',
+    view: views['new-account-main']
   }, {
     pattern: '/new-blog/',
-    view: views.newBlog.main,
+    view: views['new-blog-main'],
     authRequired: true
   }, {
     pattern: '/articles/',
-    view: views.articles.main,
+    view: views['articles-main'],
     authRequired: true
   }, {
     pattern: '/article/:id/',
-    view: views.article.main,
+    view: views['article-main'],
     authRequired: true
   }, {
     pattern: '/preview/:id/',
-    view: views.preview.main,
+    view: views['preview-main'],
     authRequired: true
   }, {
     pattern: '/preview-article/:id/',
-    view: views.preview.article,
+    view: views['preview-article'],
     authRequired: true
   }, {
     pattern: '/settings/',
-    view: views.settings.main,
-    authRequired: true
-  }, {
-    pattern: '/settings/projects/',
-    view: views.projects.main,
-    authRequired: true
-  }, {
-    pattern: '/settings/projects/archived/',
-    view: views.projects.main,
-    authRequired: true
-  }, {
-    pattern: '/settings/projects/new/',
-    view: views.projects.new,
-    authRequired: true
-  }, {
-    pattern: '/settings/projects/:id/edit/',
-    view: views.projects.edit,
-    authRequired: true
-  }, {
-    pattern: '/settings/projects/:id/a/:shouldBeArchived/',
-    view: views.projects.archive,
-    authRequired: true
-  }, {
-    pattern: '/settings/tasks/',
-    view: views.tasks.main,
-    authRequired: true
-  }, {
-    pattern: '/settings/tasks/archived/',
-    view: views.tasks.main,
-    authRequired: true
-  }, {
-    pattern: '/settings/tasks/new/',
-    view: views.tasks.new,
-    authRequired: true
-  }, {
-    pattern: '/settings/tasks/:id/edit/',
-    view: views.tasks.edit,
-    authRequired: true
-  }, {
-    pattern: '/settings/tasks/:id/a/:shouldBeArchived/',
-    view: views.tasks.archive,
-    authRequired: true
-  }, {
-    pattern: '/reports/',
-    view: views.reports.main,
-    authRequired: true
-  }, {
-    pattern: '/reports/:periodFilter/:projectsFilter/:tasksFilter/',
-    view: views.reports.main,
+    view: views['settings-main'],
     authRequired: true
   }
 ]

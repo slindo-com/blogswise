@@ -24,12 +24,12 @@
 		<input type="hidden" name="a" value="s">
 
 		<footer>
-			<button type="submit">
+			<button type="submit" class="btn">
 				Sign In
 			</button>
 			<span>
 				or
-				<a href="/sign-up/">
+				<a href="/new-account/">
 					create a new account
 				</a>
 			</span>

@@ -19,7 +19,7 @@
 		<input type="hidden" name="a" value="s" />
 
  		<footer>
-			<button type="submit">
+			<button type="submit" class="btn">
 				Create new account
 			</button>
 			<span>
