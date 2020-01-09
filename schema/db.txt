@@ -1,0 +1,38 @@
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    email text UNIQUE,
+    password text
+);
+
+CREATE UNIQUE INDEX users_pkey ON users(id int4_ops);
+CREATE UNIQUE INDEX users_email_key ON users(email text_ops);
+
+
+
+CREATE TABLE blogs (
+    id SERIAL PRIMARY KEY,
+    title character varying(255),
+    subdomain character(255) UNIQUE,
+    created_by integer,
+    created_at timestamp without time zone
+);
+
+CREATE UNIQUE INDEX blogs_pkey ON blogs(id int4_ops);
+CREATE UNIQUE INDEX blogs_subdomain_key ON blogs(subdomain bpchar_ops);
+
+
+
+CREATE TABLE articles (
+    id SERIAL PRIMARY KEY,
+    title character varying(255),
+    slug character(255),
+    text text,
+    published boolean DEFAULT false,
+    published_at date,
+    created_by integer,
+    blog integer,
+    created_at date
+);
+
+CREATE UNIQUE INDEX articles_pkey ON articles(id int4_ops);

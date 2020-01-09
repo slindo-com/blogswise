@@ -1,0 +1,68 @@
+nav {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:8*$base;
+  text-align: center;
+  background:rgba(#FFF, .85);
+  backdrop-filter:blur(3px);
+
+  a {
+    display:inline-block;
+    padding:0 2*$base;
+    line-height: -1+8*$base;
+    font-weight:500;
+    text-decoration: none;
+
+    &.active {
+      position:relative;
+      color:#000;
+
+      &:after {
+        content:'';
+        display:block;
+        position:absolute;
+        left:2*$base;
+        right:2*$base;
+        top:0;
+        height:2px;
+        background:#000;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+      }
+
+      &:hover {
+        text-decoration:none;
+      }
+    }
+  }
+
+  /* TODO: Kann noch wegfallen */
+  + div {
+    height:8*$base;
+  }
+}
+
+.subnav {
+  position:static;
+  border-bottom:0;
+  border:$color-border 1px solid;
+  height:auto;
+  background:$color-background;
+  margin-top:5*$base;
+  padding:1*$base;
+
+  a {
+    line-height:6*$base;
+    border-radius:2px;
+
+    &.active {
+      background:$color-border;
+
+      &:after {
+        display:none;
+      }
+    }
+  }
+}
