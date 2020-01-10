@@ -25,10 +25,6 @@ exports.default = async (req, res) => {
 			console.log('ERR', err)
 		})
 
-		if(req.body.a === 'sav' && success) {
-			res.redirect('/articles/')
-		}
-
 		if(req.body.a === 'pre') {
 			res.redirect('/preview/'+ article.id +'/')
 		}
@@ -38,6 +34,7 @@ exports.default = async (req, res) => {
 		title: 'Article',
 		navActive: 'articles',
 		article,
+		isEditor: true,
 		titleSet: article.title && article.title.length > 0
 	})
 }

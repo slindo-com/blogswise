@@ -6,6 +6,6 @@ exports.default = async (req, res) => {
   render(req, res, 'settings', {
     title: 'Settings',
     navActive: 'settings',
-    subnavActive: 'settings'
+    subview: req.params.subview ? req.params.subview : 'general'
   })
 }

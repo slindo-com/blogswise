@@ -74,8 +74,6 @@ class Webserver {
         req.session.uid = authCookie.id
       }
 
-      console.log(routeParsed)
-
       routeParsed.view(req, res)
     } else {
       res.end('404')
@@ -98,8 +96,6 @@ const parseReqQuery = async req => {
       var body = ''
       req.on('data', data => {
 
-        console.log('DJATA', data)
-
         body += data
         if (body.length > 1e6) {
           req.connection.destroy()
@@ -107,7 +103,6 @@ const parseReqQuery = async req => {
       })
 
       req.on('end', () => {
-        console.log('BJODY', body)
         const queryArr = body.split('&').map(val => val.split('='))
         queryArr.forEach(val => req.body[val[0]] = decodeURIComponent( (val[1].replace(/\+/g, '%20')) ))
         resolve(req)

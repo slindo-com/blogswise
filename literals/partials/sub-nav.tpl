@@ -1,13 +1,13 @@
 <nav class="subnav container">
 
-	<a href="/settings/"${d.subnavActive === 'settings' ? ` class="active"` : ``}>
-		Settings
+	<a href="/settings/" ${d.subview === 'general' ? ` class="active"` : ``}>
+		General
 	</a>
-	<a href="/settings/projects/"${d.subnavActive === 'projects' ? ` class="active"` : ``}>
-		Projects
+	<a href="/settings/team/" ${d.subview === 'team' ? ` class="active"` : ``}>
+		Team
 	</a>
-	<a href="/settings/tasks/"${d.subnavActive === 'tasks' ? ` class="active"` : ``}>
-		Tasks
+	<a href="/settings/account/"${d.subview === 'account' ? ` class="active"` : ``}>
+		Account
 	</a>
 
 </nav>

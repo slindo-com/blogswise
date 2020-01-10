@@ -51,6 +51,10 @@ const routes = [
     pattern: '/settings/',
     view: views['settings-main'],
     authRequired: true
+  }, {
+    pattern: '/settings/:subview/',
+    view: views['settings-main'],
+    authRequired: true
   }
 ]
 

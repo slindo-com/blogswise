@@ -6,8 +6,10 @@ var templates = {
   partials: {}
 }
 
-const partialsArr = fs.readdirSync('./literals/partials/').map(file => file.split('.')[0])
-const viewsArr = fs.readdirSync('./literals/views/').map(file => file.split('.')[0])
+const readFiles = folder => fs.readdirSync(folder).map(file => file.split('.')[0]).filter(file => file.length > 0)
+
+const partialsArr = readFiles('./literals/partials/'),
+  viewsArr = readFiles('./literals/views/')
 
 partialsArr.forEach(partial =>
   templates.partials[partial] = fs.readFileSync('./literals/partials/' + partial + '.tpl', 'utf8')
