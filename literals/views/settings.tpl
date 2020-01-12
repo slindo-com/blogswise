@@ -4,9 +4,7 @@
 
 {{sub-nav}}
 
-<div class="container">
-	SETTINGS
-</div>
+${d.subview}
 
 {{html-footer}}
 
