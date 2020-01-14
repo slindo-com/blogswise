@@ -54,10 +54,14 @@ nav {
   box-shadow: 0 -1px 0 $color-border inset;
   overflow:hidden;
 
+  + div {
+    height:auto;
+  }
+
   a {
     line-height:-2+6*$base;
     border-radius:12px 12px 0 0;
-    border:1px $color-background solid;
+    border:1px transparent solid;
     border-bottom-color:$color-border;
 
     &.active {

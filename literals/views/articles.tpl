@@ -15,16 +15,16 @@
 	</form>
 </header>
 
-${d.articles.length > 0 ? `
+${d.articlesDraft.length > 0 ? `
 	<ul class="entries container">
-		${d.articles.map(article => `
+		${d.articlesDraft.map(article => `
 			<li>
 				<a href="/article/${article.id}/">
 					<h4>
 						${article.title ? article.title : 'No Title'}
 					</h4>
 					<small class="published-small">
-						${article.published ? 'Published' : 'Draft'}
+						Draft
 					</small>
 					<small>
 						by Ben
@@ -34,11 +34,34 @@ ${d.articles.length > 0 ? `
 			</li>
 		`).join('')}
 	</ul>
-`:`
+`:``}
+
+${d.articlesPublished.length > 0 ? `
+	<ul class="entries container">
+		${d.articlesPublished.map(article => `
+			<li>
+				<a href="/article/${article.id}/">
+					<h4>
+						${article.title ? article.title : 'No Title'}
+					</h4>
+					<small class="published-small">
+						Published
+					</small>
+					<small>
+						by Ben
+					</small>
+					
+				</a>	
+			</li>
+		`).join('')}
+	</ul>
+`:``}
+
+${!d.hasArticles ? `
 	<p class="container">
 		No articles available!
 	</p>
-`}
+`:``}
 
 
 {{html-footer}}

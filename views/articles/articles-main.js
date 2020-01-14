@@ -31,9 +31,14 @@ exports.default = async (req, res) => {
 		blog: blog.id
 	})
 
+	const articlesDraft = articles.filter(article => !article.published),
+		articlesPublished = articles.filter(article => article.published)
+
 	render(req, res, 'articles', {
 		title: 'Articles',
 		navActive: 'articles',
-		articles
+		articlesDraft,
+		articlesPublished,
+		hasArticles: articles.length > 0
 	})
 }

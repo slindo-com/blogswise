@@ -4,7 +4,9 @@
 
 {{sub-nav}}
 
-${d.subview}
+${d.subview === 'general' ? `
+	{{settings-general}}
+` : ``}
 
 {{html-footer}}
 

@@ -142,6 +142,11 @@ a {
 
 form {
 
+  &.shadow {
+    box-shadow:0 2px 4px rgba(0, 0, 0, .075);
+    border-radius: 12px;
+  }
+
   >label {
     display: block;
     font-size:12px;
@@ -149,7 +154,7 @@ form {
     padding:3*$base 4*$base 0 4*$base;
 
     &:first-child {
-      +input {
+      +input, +select {
         border-top:$color-border 1px solid;
         border-top-left-radius:12px;
         border-top-right-radius:12px;
@@ -161,14 +166,14 @@ form {
       }
     }
 
-    +input {
+    +input, +select {
       padding-top:6*$base;
       padding-bottom:3*$base;
       margin-top:-5*$base;
     }
   }
 
-  >input {
+  >input, >select {
     -webkit-appearance:none;
     padding:2*$base 4*$base;
     font-size:14px;
@@ -179,6 +184,8 @@ form {
     border:$color-border 1px solid;
     border-top:0;
     outline:none;
+    border-radius: 0;
+    background:#FFF;
 
     &:focus {
       border-color:blue;
@@ -244,18 +251,6 @@ form {
     border-color:green;
   }
 }*/
-
-select {
-  -webkit-appearance:none;
-  display:block;
-  padding:2*$base;
-  font-size:14px;
-  line-height:2*$base;
-  width:100%;
-  background:#FFF;
-  border:$color-border 1px solid;
-  border-radius:1px;
-}
 
 
 section {
@@ -392,6 +387,7 @@ section {
   outline:none;
   border:0;
   width:18*$base;
+  white-space: nowrap;
 
   &.published {
     span {
@@ -427,4 +423,21 @@ section {
   width:100%;
   height:calc(100vh - 48px);
   border:0;
+}
+
+
+
+.flex {
+  margin-top:8*$base;
+  display:flex;
+  flex-direction: row;
+
+  .left {
+    width:25%;
+    padding-right:4*$base
+  }
+
+  .right {
+    width:75%;
+  }
 }
