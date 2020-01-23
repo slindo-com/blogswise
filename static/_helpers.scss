@@ -133,6 +133,10 @@ a {
     width:7*$base;
     padding:0;
   }
+
+  +.btn {
+    margin-left:2*$base;
+  }
 }
 
 .err {
@@ -140,11 +144,24 @@ a {
   margin:2*$base 0;
 }
 
+.box {
+    box-shadow:0 2px 4px rgba(0, 0, 0, .075);
+    border-radius: 12px;
+    margin-bottom:8*$base;
+    border:$color-border 1px solid;
+    padding:-1+4*$base;
+
+    >p {
+      margin-bottom:4*$base;
+    }
+}
+
 form {
 
   &.shadow {
     box-shadow:0 2px 4px rgba(0, 0, 0, .075);
     border-radius: 12px;
+    margin-bottom:8*$base;
   }
 
   >label {
@@ -251,6 +268,77 @@ form {
     border-color:green;
   }
 }*/
+
+.saved, .saved-target {
+  display:inline-block;
+  box-shadow: 0 0 0 2px #68B359 inset;
+  line-height:6*$base;
+  padding:0 4*$base;
+  color:#68B359;
+  border-radius: .5*$base; 
+  font-weight: 600;
+}
+
+.saved {
+  margin-left:3*$base;
+  animation-duration: 6s;
+  animation-name: slidein;
+  animation-direction: normal;
+  opacity:0;
+}
+
+.saved-target {
+ 
+  height:0;
+  overflow: hidden;
+  display: block;
+
+  &:target {
+    animation-duration: 6s;
+    animation-name: slidein-target;
+    animation-direction: normal;
+  }
+}
+
+
+@keyframes slidein {
+  0% {
+    opacity:0;
+  }
+  10% {
+    opacity:1;
+  }
+
+  90% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+    pointer-events: none;
+  }
+}
+
+
+@keyframes slidein-target {
+  0% {
+    height:0;
+    margin-bottom:0;
+  }
+  10% {
+    height:6*$base;
+    margin-bottom:4*$base;
+  }
+
+  90% {
+    height:6*$base;
+    margin-bottom:4*$base;
+  }
+  100% {
+    height:0;
+    margin-bottom:0;
+    pointer-events: none;
+  }
+}
 
 
 section {

@@ -7,6 +7,7 @@ nav {
   text-align: center;
   background:rgba(#FFF, .85);
   backdrop-filter:blur(3px);
+  z-index:1000;
 
   a {
     display:inline-block;

@@ -242,35 +242,35 @@
 				<option value="-05:00" ${d.blog.timezone === '-05:00' ? `selected=selected` : ``}>(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
 				<option value="-04:50" ${d.blog.timezone === '-04:50' ? `selected=selected` : ``}>(GMT -4:30) Caracas</option>
 				<option value="-04:00" ${d.blog.timezone === '-04:00' ? `selected=selected` : ``}>(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
-				<option value="-03:50" ${d.blog.timezone === '-11:00' ? `selected=selected` : ``}>(GMT -3:30) Newfoundland</option>
-				<option value="-03:00" ${d.blog.timezone === '-11:00' ? `selected=selected` : ``}>(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
-				<option value="-02:00" ${d.blog.timezone === '-11:00' ? `selected=selected` : ``}>(GMT -2:00) Mid-Atlantic</option>
-				<option value="-01:00" ${d.blog.timezone === '-11:00' ? `selected=selected` : ``}>(GMT -1:00) Azores, Cape Verde Islands</option>
-				<option value="+00:00" ${d.blog.timezone === '+11:00' ? `selected=selected` : ``}>(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
-				<option value="+01:00" ${d.blog.timezone === '+11:00' ? `selected=selected` : ``}>(GMT +1:00) Brussels, Copenhagen, Madrid, Paris</option>
-				<option value="+02:00" ${d.blog.timezone === '+11:00' ? `selected=selected` : ``}>(GMT +2:00) Kaliningrad, South Africa</option>
-				<option value="+03:00" ${d.blog.timezone === '+11:00' ? `selected=selected` : ``}>(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
-				<option value="+03:50" ${d.blog.timezone === '+11:00' ? `selected=selected` : ``}>(GMT +3:30) Tehran</option>
-				<option value="+04:00" ${d.blog.timezone === '+11:00' ? `selected=selected` : ``}>(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
-				<option value="+04:50" ${d.blog.timezone === '+11:00' ? `selected=selected` : ``}>(GMT +4:30) Kabul</option>
-				<option value="+05:00" ${d.blog.timezone === '+11:00' ? `selected=selected` : ``}>(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
-				<option value="+05:50" ${d.blog.timezone === '+11:00' ? `selected=selected` : ``}>(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
-				<option value="+05:75" ${d.blog.timezone === '+11:00' ? `selected=selected` : ``}>(GMT +5:45) Kathmandu, Pokhara</option>
-				<option value="+06:00" ${d.blog.timezone === '+11:00' ? `selected=selected` : ``}>(GMT +6:00) Almaty, Dhaka, Colombo</option>
-				<option value="+06:50" ${d.blog.timezone === '+11:00' ? `selected=selected` : ``}>(GMT +6:30) Yangon, Mandalay</option>
-				<option value="+07:00" ${d.blog.timezone === '+11:00' ? `selected=selected` : ``}>(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
-				<option value="+08:00" ${d.blog.timezone === '+11:00' ? `selected=selected` : ``}>(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
-				<option value="+08:75" ${d.blog.timezone === '+11:00' ? `selected=selected` : ``}>(GMT +8:45) Eucla</option>
-				<option value="+09:00" ${d.blog.timezone === '+11:00' ? `selected=selected` : ``}>(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
-				<option value="+09:50" ${d.blog.timezone === '+11:00' ? `selected=selected` : ``}>(GMT +9:30) Adelaide, Darwin</option>
-				<option value="+10:00" ${d.blog.timezone === '+11:00' ? `selected=selected` : ``}>(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
-				<option value="+10:50" ${d.blog.timezone === '+11:00' ? `selected=selected` : ``}>(GMT +10:30) Lord Howe Island</option>
+				<option value="-03:50" ${d.blog.timezone === '-03:40' ? `selected=selected` : ``}>(GMT -3:30) Newfoundland</option>
+				<option value="-03:00" ${d.blog.timezone === '-03:00' ? `selected=selected` : ``}>(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
+				<option value="-02:00" ${d.blog.timezone === '-02:00' ? `selected=selected` : ``}>(GMT -2:00) Mid-Atlantic</option>
+				<option value="-01:00" ${d.blog.timezone === '-01:00' ? `selected=selected` : ``}>(GMT -1:00) Azores, Cape Verde Islands</option>
+				<option value="+00:00" ${d.blog.timezone === '+00:00' ? `selected=selected` : ``}>(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
+				<option value="+01:00" ${d.blog.timezone === '+01:00' ? `selected=selected` : ``}>(GMT +1:00) Brussels, Copenhagen, Madrid, Paris</option>
+				<option value="+02:00" ${d.blog.timezone === '+02:00' ? `selected=selected` : ``}>(GMT +2:00) Kaliningrad, South Africa</option>
+				<option value="+03:00" ${d.blog.timezone === '+03:00' ? `selected=selected` : ``}>(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
+				<option value="+03:50" ${d.blog.timezone === '+03:50' ? `selected=selected` : ``}>(GMT +3:30) Tehran</option>
+				<option value="+04:00" ${d.blog.timezone === '+04:00' ? `selected=selected` : ``}>(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
+				<option value="+04:50" ${d.blog.timezone === '+04:50' ? `selected=selected` : ``}>(GMT +4:30) Kabul</option>
+				<option value="+05:00" ${d.blog.timezone === '+05:00' ? `selected=selected` : ``}>(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
+				<option value="+05:50" ${d.blog.timezone === '+05:50' ? `selected=selected` : ``}>(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
+				<option value="+05:75" ${d.blog.timezone === '+05:75' ? `selected=selected` : ``}>(GMT +5:45) Kathmandu, Pokhara</option>
+				<option value="+06:00" ${d.blog.timezone === '+06:00' ? `selected=selected` : ``}>(GMT +6:00) Almaty, Dhaka, Colombo</option>
+				<option value="+06:50" ${d.blog.timezone === '+06:50' ? `selected=selected` : ``}>(GMT +6:30) Yangon, Mandalay</option>
+				<option value="+07:00" ${d.blog.timezone === '+07:00' ? `selected=selected` : ``}>(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
+				<option value="+08:00" ${d.blog.timezone === '+08:00' ? `selected=selected` : ``}>(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
+				<option value="+08:75" ${d.blog.timezone === '+08:75' ? `selected=selected` : ``}>(GMT +8:45) Eucla</option>
+				<option value="+09:00" ${d.blog.timezone === '+09:00' ? `selected=selected` : ``}>(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
+				<option value="+09:50" ${d.blog.timezone === '+09:50' ? `selected=selected` : ``}>(GMT +9:30) Adelaide, Darwin</option>
+				<option value="+10:00" ${d.blog.timezone === '+10:00' ? `selected=selected` : ``}>(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
+				<option value="+10:50" ${d.blog.timezone === '+10:50' ? `selected=selected` : ``}>(GMT +10:30) Lord Howe Island</option>
 				<option value="+11:00" ${d.blog.timezone === '+11:00' ? `selected=selected` : ``}>(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
-				<option value="+11:50" ${d.blog.timezone === '+11:00' ? `selected=selected` : ``}>(GMT +11:30) Norfolk Island</option>
-				<option value="+12:00" ${d.blog.timezone === '+11:00' ? `selected=selected` : ``}>(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>
-				<option value="+12:75" ${d.blog.timezone === '+11:00' ? `selected=selected` : ``}>(GMT +12:45) Chatham Islands</option>
-				<option value="+13:00" ${d.blog.timezone === '+11:00' ? `selected=selected` : ``}>(GMT +13:00) Apia, Nukualofa</option>
-				<option value="+14:00" ${d.blog.timezone === '+11:00' ? `selected=selected` : ``}>(GMT +14:00) Line Islands, Tokelau</option>
+				<option value="+11:50" ${d.blog.timezone === '+11:50' ? `selected=selected` : ``}>(GMT +11:30) Norfolk Island</option>
+				<option value="+12:00" ${d.blog.timezone === '+12:00' ? `selected=selected` : ``}>(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>
+				<option value="+12:75" ${d.blog.timezone === '+12:75' ? `selected=selected` : ``}>(GMT +12:45) Chatham Islands</option>
+				<option value="+13:00" ${d.blog.timezone === '+13:00' ? `selected=selected` : ``}>(GMT +13:00) Apia, Nukualofa</option>
+				<option value="+14:00" ${d.blog.timezone === '+14:00' ? `selected=selected` : ``}>(GMT +14:00) Line Islands, Tokelau</option>
 			</select>
 
 			<input type="hidden" name="a" value="met">
@@ -279,6 +279,11 @@
 				<button type="submit" class="btn">
 					Save Metadata
 				</button>
+				${d.saved ? `
+					<div class="saved">
+						Metadata successfully saved!
+					</div>
+				` : ``}
 			</footer>
 
 		</form>
