@@ -87,9 +87,9 @@
 				<label for="em">
 					New E-Mail Address:
 				</label>
-				<input placeholder="Type here…" type="email" name="name" id="em" required autofocus>
+				<input placeholder="Type here…" type="email" name="email" id="em" required autofocus>
 
-				<input type="hidden" name="a" value="nam">
+				<input type="hidden" name="a" value="ema">
 
 				<footer>
 					<button type="submit" class="btn">

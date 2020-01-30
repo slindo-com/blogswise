@@ -19,7 +19,7 @@ db.new = async (table, data) => {
       keys = Object.keys(data).join(','),
       values = Object.values(data).map((val, key) => '$' + (key + 1)).join(',')
 
-      console.log("INSERT INTO "+ table +"("+ keys +") VALUES("+ values +") RETURNING id")
+      console.log("INSERT INTO "+ table +"("+ keys +") VALUES("+ values +") RETURNING id", Object.values(data))
 
       const res = await client.query("INSERT INTO "+ table +"("+ keys +") VALUES("+ values +") RETURNING id", Object.values(data)).catch(err => {
         client.release()
@@ -35,6 +35,19 @@ db.find = async (table, data) => {
   const client = await pool.connect(),
     whereArray = Object.entries(data).map(entry => entry[0] +" = '"+ entry[1] + "'")
     where = whereArray.join(' AND '),
+    res = await client.query("SELECT * FROM "+ table +" WHERE "+ where).catch(err => {
+    client.release()
+    throw err
+  })
+
+  client.release()
+  return res.rows
+}
+
+db.getByValues = async (table, column, values) => {
+  const client = await pool.connect(),
+    whereArray = values.map(value => column +" = "+ value + "")
+    where = whereArray.join(' OR '),
     res = await client.query("SELECT * FROM "+ table +" WHERE "+ where).catch(err => {
     client.release()
     throw err

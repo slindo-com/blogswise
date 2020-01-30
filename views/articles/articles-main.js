@@ -3,8 +3,12 @@ const { render } = require('../../libs/render/render.js')
 
 exports.default = async (req, res) => {
 
+	const authorship = await db.find('authorship', {
+		author: req.session.uid
+	})
+	
 	const blog = await db.findOne('blogs', {
-		created_by: req.session.uid
+		id: authorship[0].blog
 	})
 
 	if(!blog) {

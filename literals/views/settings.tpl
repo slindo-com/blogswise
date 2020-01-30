@@ -9,11 +9,7 @@ ${d.subview === 'general' ? `
 ` : ``}
 
 ${d.subview === 'team' ? `
-	<div class="container">
-		<h3>
-			Team
-		</h3>
-	</div>
+	{{settings-team}}
 ` : ``}
 
 ${d.subview === 'account' ? `

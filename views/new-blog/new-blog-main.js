@@ -21,6 +21,21 @@ exports.default = async (req, res) => {
 			})
 		})
 
+		await db.new('authorship', {
+			author: req.session.uid,
+			blog: id,
+			role: 1
+		}).catch(err => {
+			console.log('ERR', err)
+
+			render(req, res, 'new-blog', {
+				title: 'New Blog',
+				navActive: 'articles',
+			})
+		})
+
+
+
 		res.redirect('/articles/')
 	}
 

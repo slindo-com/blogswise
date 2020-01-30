@@ -14,12 +14,12 @@ exports.default = async (req, res) => {
 
 	if (req.body.a === 'sav' || req.body.a === 'pub' || req.body.a === 'pre') {
 
-		const title = req.body.title,
-			text = req.body.text
+		article.title = req.body.title
+		article.text = req.body.text
 
 		const success = await db.update('articles', req.params.id, {
-			title,
-			text,
+			title: article.title,
+			text: article.text,
 			published: article.published
 		}).catch(err => {
 			console.log('ERR', err)
