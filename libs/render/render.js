@@ -19,7 +19,7 @@ viewsArr.forEach(view => {
   templates.views[view] = fs.readFileSync('./literals/views/' + view + '.tpl', 'utf8')
 
   partialsArr.forEach(partial =>
-  	templates.views[view] = templates.views[view].replace('{{' + partial + '}}', templates.partials[partial])
+  	templates.views[view] = templates.views[view].split('{{' + partial + '}}').join(templates.partials[partial])
   )
 })
 

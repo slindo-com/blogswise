@@ -3,6 +3,9 @@ const { render } = require('../../libs/render/render.js')
 
 exports.default = async (req, res) => {
 
+	const subview = req.params.subview ? req.params.subview : 'editor'
+
+	console.log('SUB', subview)
 
 	let article = await db.findOne('articles', {
 		id: req.params.id
@@ -18,9 +21,7 @@ exports.default = async (req, res) => {
 		article.text = req.body.text
 
 		const success = await db.update('articles', req.params.id, {
-			title: article.title,
-			text: article.text,
-			published: article.published
+			text: article.text
 		}).catch(err => {
 			console.log('ERR', err)
 		})
@@ -28,11 +29,28 @@ exports.default = async (req, res) => {
 		if(req.body.a === 'pre') {
 			res.redirect('/preview/'+ article.id +'/')
 		}
+	} else if (req.body.a === 'change-metadata') {
+
+		console.log(req.body.title)
+
+		article.title = req.body.title
+		article.published = req.body.published
+
+		const success = await db.update('articles', req.params.id, {
+			title: article.title,
+			published: article.published
+		}).catch(err => {
+			console.log('ERR', err)
+		})
+
+		res.redirect('/article/'+ req.params.id +'/options/#success-metadata')
 	}
+
 
 	render(req, res, 'article', {
 		title: 'Article',
 		navActive: 'articles',
+		subview,
 		article,
 		isEditor: true,
 		titleSet: article.title && article.title.length > 0

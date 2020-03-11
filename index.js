@@ -40,8 +40,8 @@ const routes = [
     view: views['article-main'],
     authRequired: true
   }, {
-    pattern: '/preview/:id/',
-    view: views['preview-main'],
+    pattern: '/article/:id/:subview/',
+    view: views['article-main'],
     authRequired: true
   }, {
     pattern: '/preview-article/:id/',

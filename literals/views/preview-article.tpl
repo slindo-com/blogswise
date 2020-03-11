@@ -4,7 +4,7 @@
 	<article class="small-container" style="margin:24px auto;">
 		<header>
 			<h1>
-				${d.article.title}
+				${d.article.title ? d.article.title : 'No Title'}
 			</h1>
 		</header>
 		<section>

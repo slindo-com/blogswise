@@ -22,7 +22,7 @@
 
   li {
     &:first-child {
-      a, >div {
+      >* {
         border-top:$color-border 1px solid;
         border-top-left-radius: 12px;
         border-top-right-radius: 12px;
@@ -34,13 +34,13 @@
     }
 
     &:last-child {
-      a, >div {
+      >* {
         border-bottom-left-radius: 12px;
         border-bottom-right-radius: 12px;
       }
     }
 
-    a, >div {
+    >* {
       display:block;
       padding:3*$base 4*$base;
       border:$color-border 1px solid;
@@ -53,17 +53,24 @@
         box-shadow: 0 -1px 0 $color-blue;
         background:$color-background;
       }
+    }
 
-      h4 {
-        font-weight:500;
+    >div {
+      &:hover {
+        border-color: #333;
+         box-shadow: 0 -1px 0 #333;
       }
+    }
 
-      small {
-        margin:1*$base 0 0 0;
-        display:inline-block;
-        line-height: 3*$base;
-        color:#333;
-      }
+    h4 {
+      font-weight:500;
+    }
+
+    small {
+      margin:1*$base 0 0 0;
+      display:inline-block;
+      line-height: 3*$base;
+      color:#333;
     }
   }
 
