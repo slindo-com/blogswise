@@ -1,8 +1,13 @@
-const http = require('http'),
+const https = process.env.PORT ? require('http') : require('https'),
   fs = require('fs'),
   path = require('path'),
   url = require('url'),
   crypto = require('crypto')
+
+const serverConfig = process.env.PORT ? {} : {
+    key: fs.readFileSync('./key.pem'),
+    cert: fs.readFileSync('./cert.pem')
+  }
 
 class Webserver {
   constructor ({ port }) {
@@ -28,8 +33,7 @@ class Webserver {
   }
 
   _startServer () {
-    this.server = http.createServer({
-    }, this._handleReq.bind(this)).listen(this.port, () => {
+    this.server = https.createServer(serverConfig, this._handleReq.bind(this)).listen(this.port, () => {
       console.log('server running at ' + this.port)
     })
   }

@@ -6,15 +6,14 @@ exports.default = async (req, res) => {
 	const authorship = await db.find('authorship', {
 		author: req.session.uid
 	})
+
+	if(authorship.length === 0) {
+		res.redirect('/new-blog/')
+	}
 	
 	const blog = await db.findOne('blogs', {
 		id: authorship[0].blog
 	})
-
-	if(!blog) {
-		res.redirect('/new-blog/')
-	}
-
 
 	if (req.body.a === 's') {
 
