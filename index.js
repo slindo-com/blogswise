@@ -75,8 +75,13 @@ var webserver = new Webserver({
 webserver.addRoutes(routes)
 
 webserver.addSpecificRoute('/', (req, res) => {
-  console.log(req.session)
-  res.redirect('/sign-in/')
+
+  console.log(req)
+
+    res.writeHead(200, { 'Content-Type': 'text/html' })
+    res.end(JSON.stringify(req.headers), 'utf-8')
+
+  // res.redirect('/sign-in/')
 })
 
 
@@ -95,14 +100,6 @@ webserver.addSpecificRoute('/favicon.ico', (req, res) => {
     res.end(content, 'utf-8')
   })
 })
-
-webserver.addSpecificRoute('/.well-known/acme-challenge/cuB2-2xQq6H3tnQSbhp5xJ3Ct8vhK9fpQBR0GBaQPMY', (req, res) => {
-    res.writeHead(200, { 'Content-Type': 'text/html' })
-    res.end('cuB2-2xQq6H3tnQSbhp5xJ3Ct8vhK9fpQBR0GBaQPMY.MerJlsqzKwJ_Uc1-2lpeqio-AYOxJFlU3WymT2iIjeY', 'utf-8')
-})
-
-
-
 
 
 
