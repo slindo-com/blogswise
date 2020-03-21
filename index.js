@@ -65,7 +65,7 @@ const routes = [
 
 
 var webserver = new Webserver({
-  port: 8145
+  port: process.env.PORT || 8145
 })
 
 webserver.addRoutes(routes)
