@@ -1,15 +1,18 @@
 process.on('unhandledRejection', r => console.log(r))
+const { Pool } = require('pg')
 
-const { Pool } = require('pg'),
-  pool = new Pool({
-  user: 'benjamin',
-  host: 'localhost',
-  database: 'benjamin',
-  password: '',
-  port: 5432,
-})
-
-
+const pool = process.env.DATABASE_URL 
+  ? new Pool({
+    connectionString : process.env.DATABASE_URL,
+    ssl: true
+  })
+  : new Pool({
+    user: 'benjamin',
+    host: 'localhost',
+    database: 'benjamin',
+    password: '',
+    port: 5432,
+  })
 
 const db = {}
 const dbAdvanced = {}
