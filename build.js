@@ -58,6 +58,14 @@ var result = sass.renderSync({
   file: './static/styles.scss'
 });
 
+if (!fs.existsSync('./minified')) {
+  fs.mkdirSync('./minified')
+}
+
+if (!fs.existsSync('./minified/static')) {
+  fs.mkdirSync('./minified/static')
+}
+
 fs.writeFileSync('./minified/static/s.css', result.css);
 const css = fs.readFileSync('./minified/static/s.css').toString();
 
