@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt'),
+const bcrypt = require('bcryptjs'),
 	 helpers = require('../../libs/helpers/helpers.js'),
 	{ db } = require('../../libs/db/db.js'),
 	{ render } = require('../../libs/render/render.js')
