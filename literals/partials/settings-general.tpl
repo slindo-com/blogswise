@@ -16,17 +16,17 @@
 			<label for="ti">
 				Blog Title:
 			</label>
-			<input placeholder="Type here…" type="text" name="title" id="ti" value=\"${d.blog.title}\" required>
+			<input placeholder="Type here…" type="text" name="title" id="ti" value=\"${d.blog.title ? d.blog.title : ''}\" required>
 
 			<label for="de">
 				Description:
 			</label>
-			<input placeholder="A short description of your blog" type="text" name="description" id="de" minlength="6" value=\"${d.blog.description}\">
+			<input placeholder="A short description of your blog" type="text" name="description" id="de" minlength="6" value=\"${d.blog.description ? d.blog.description : ''}\">
 
 			<label for="la">
 				Language:
 			</label>
-			<input placeholder="Place the language code here (e.g. 'en') " type="text" name="language" id="la" minlength="2" maxlength="7" list="language-list" value=\"${d.blog.language}\">
+			<input placeholder="Place the language code here (e.g. 'en') " type="text" name="language" id="la" minlength="2" maxlength="7" list="language-list" value=\"${d.blog.language ? d.blog.language : ''}\">
 
 
 

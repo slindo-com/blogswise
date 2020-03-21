@@ -59,6 +59,10 @@ const routes = [
     pattern: '/settings/:subview/:action/',
     view: views['settings-main'],
     authRequired: true
+  }, {
+    pattern: '/:id/',
+    view: views['blog-main'],
+    authRequired: false
   }
 ]
 
@@ -90,6 +94,11 @@ webserver.addSpecificRoute('/favicon.ico', (req, res) => {
     res.writeHead(200, { 'Content-Type': 'image/x-icon' })
     res.end(content, 'utf-8')
   })
+})
+
+webserver.addSpecificRoute('/.well-known/acme-challenge/lGmKmDcc8JgfT0ItIvgEO308XwR5-0eg4E64pQvrVmA', (req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/html' })
+    res.end('lGmKmDcc8JgfT0ItIvgEO308XwR5-0eg4E64pQvrVmA.hGCXK83K1SKEQErJMkV4DcV5QDpF4BoXLb30v8yoYo8', 'utf-8')
 })
 
 
