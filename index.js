@@ -96,9 +96,9 @@ webserver.addSpecificRoute('/favicon.ico', (req, res) => {
   })
 })
 
-webserver.addSpecificRoute('/.well-known/acme-challenge/PmsWQjBUsw3FMhiGq2j2vntp7BWfqdEsdDpJP1rLAdo', (req, res) => {
+webserver.addSpecificRoute('/.well-known/acme-challenge/cuB2-2xQq6H3tnQSbhp5xJ3Ct8vhK9fpQBR0GBaQPMY', (req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/html' })
-    res.end('PmsWQjBUsw3FMhiGq2j2vntp7BWfqdEsdDpJP1rLAdo.hGCXK83K1SKEQErJMkV4DcV5QDpF4BoXLb30v8yoYo8', 'utf-8')
+    res.end('cuB2-2xQq6H3tnQSbhp5xJ3Ct8vhK9fpQBR0GBaQPMY.MerJlsqzKwJ_Uc1-2lpeqio-AYOxJFlU3WymT2iIjeY', 'utf-8')
 })
 
 
