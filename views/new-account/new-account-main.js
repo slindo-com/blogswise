@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const { db } = require('../../libs/db/db.js')
 const { render } = require('../../libs/render/render.js')
 
