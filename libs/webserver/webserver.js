@@ -1,4 +1,4 @@
-const https = require('https'),
+const https = require('http'),
   fs = require('fs'),
   path = require('path'),
   url = require('url'),
@@ -28,9 +28,7 @@ class Webserver {
   }
 
   _startServer () {
-    this.server = https.createServer({
-      key: fs.readFileSync('./key.pem'),
-      cert: fs.readFileSync('./cert.pem')
+    this.server = http.createServer({
     }, this._handleReq.bind(this)).listen(this.port, () => {
       console.log('server running at ' + this.port)
     })
