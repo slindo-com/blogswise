@@ -76,12 +76,12 @@ webserver.addRoutes(routes)
 
 webserver.addSpecificRoute('/', (req, res) => {
 
-  console.log(req)
-
+  if(req.headers.host.split('.')[0] === 'app') {
+    res.redirect('/sign-in/')
+  } else {
     res.writeHead(200, { 'Content-Type': 'text/html' })
-    res.end(JSON.stringify(req.headers), 'utf-8')
-
-  // res.redirect('/sign-in/')
+    res.end('BLOG', 'utf-8')
+  }
 })
 
 
