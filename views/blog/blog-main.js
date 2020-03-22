@@ -5,11 +5,21 @@ const markdownIt = require('markdown-it')()
 
 exports.default = async (req, res) => {
 
-	const subdomain = req.headers.host.split('.')[0]
+	const hostArr = req.headers.host.split('.')
 
-	const blog = await db.findOne('blogs', {
-		subdomain: subdomain != 'localhost:8145' ? subdomain : 'slindo'
-	})
+	const subdomain = hostArr[1] === 'blogswise'
+		? hostArr[0]
+		: hostArr[0] === 'localhost:8145'
+			? 'slindo'
+			: null
+
+	const search = subdomain
+		? { subdomain }
+		: { subdomain: 'slindo' }
+
+	console.log('TEST', req.headers.host, search)
+
+	const blog = await db.findOne('blogs', search)
 
 	if(!blog) {
 		// 404
