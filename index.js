@@ -79,8 +79,7 @@ webserver.addSpecificRoute('/', (req, res) => {
   if(req.headers.host.split('.')[0] === 'app') {
     res.redirect('/sign-in/')
   } else {
-    res.writeHead(200, { 'Content-Type': 'text/html' })
-    res.end('BLOG', 'utf-8')
+    views['blog-main'](req, res)
   }
 })
 

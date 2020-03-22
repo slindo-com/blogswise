@@ -5,8 +5,6 @@ exports.default = async (req, res) => {
 
 	const subview = req.params.subview ? req.params.subview : 'editor'
 
-	console.log('SUB', subview)
-
 	let article = await db.findOne('articles', {
 		id: req.params.id
 	})
