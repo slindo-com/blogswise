@@ -25,7 +25,9 @@ exports.default = async (req, res) => {
 			console.log('ERR', err)
 		})
 
-		generateIndex(article.blog)
+		generateIndex(article.blog).catch(err => {
+			console.log('ERR', err)
+		})
 
 		if(req.body.a === 'pre') {
 			res.redirect('/preview/'+ article.id +'/')
@@ -42,7 +44,9 @@ exports.default = async (req, res) => {
 			console.log('ERR', err)
 		})
 
-		generateIndex(article.blog)
+		generateIndex(article.blog).catch(err => {
+			console.log('ERR', err)
+		})
 
 		res.redirect('/article/'+ req.params.id +'/options/#success-metadata')
 	}

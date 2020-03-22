@@ -31,6 +31,8 @@ generateIndex = async blogId =>
 
     await aws.s3.putObject(blog.bucket, 'index.html', rendered).catch(err => reject(err))
 
+    console.log('Generated')
+
     resolve()
   })
 
