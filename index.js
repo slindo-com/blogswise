@@ -5,6 +5,7 @@ if (process.env.ENVIROMENT === 'dev') {
 process.stdout.write('\033c');
 
 const fs = require('fs')
+const request = require('request')
 
 const { Webserver } = require('./libs/webserver/webserver.js')
 
@@ -83,7 +84,7 @@ webserver.addSpecificRoute('/', (req, res) => {
   if(req.headers.host.split('.')[0] === 'app') {
     res.redirect('/sign-in/')
   } else {
-    views['blog-main'](req, res)
+    request('http://slindo-blog.s3-website-us-east-1.amazonaws.com/').pipe(res)
   }
 })
 
