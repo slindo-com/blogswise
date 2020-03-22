@@ -98,6 +98,39 @@ exports.parseDateTime = dateTime => {
 }
 
 
+exports.minifyTemplate = tpl => {
+  // Get rid of all line breaks
+  tpl = tpl.replace(/(?:\r\n|\r|\n|\t)/g, '')
+
+  // Remove '/>'
+  tpl = tpl.replace(/(?:\/\>)/g, '>')
+
+  // Remove ' >'
+  tpl = tpl.replace(/(?: \>)/g, '>')
+
+  // Remove body and html end tag
+  tpl = tpl.replace('</body>', '')
+  tpl = tpl.replace('</html>', '')
+
+  // Remove comments
+  tpl = tpl.replace(/<!--[\s\S]*?-->/g, '')
+
+  // Get all attributes
+  // Get value of attributes
+  // Filter if quotes removeable
+  try {
+    var attributes = tpl.match(/\s(\w+?)="(.+?)"/g)
+      .map(val => val.substring(0, val.length - 1).split('="'))
+      .filter(val => areQuotesRemoveable(val[1]))
+
+    attributes.forEach(val => {
+      tpl = tpl.replace(val.join('="') + '"', val.join('='))
+    })
+  } catch (err) {}
+
+  return tpl
+}
+
 
 exports.colors = [
   '#4D4D4D', '#B33C24', '#B37D47', '#B3A147', '#A1B347', '#7DB347', '#68B359', 

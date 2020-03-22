@@ -1,6 +1,8 @@
 const fs = require('fs')
 const zlib = require('zlib')
 
+const { minifyTemplate } = require('../../libs/helpers/helpers.js')
+
 var templates = {
   views: {},
   partials: {}
@@ -26,38 +28,7 @@ viewsArr.forEach(view => {
 const areQuotesRemoveable = val => /^[^ \t\n\f\r"'`=<>]+$/.test(val)
 
 Object.keys(templates.views).forEach(key => {
-  var tpl = templates.views[key]
-
-  // Get rid of all line breks
-  tpl = tpl.replace(/(?:\r\n|\r|\n|\t)/g, '')
-
-  // Remove '/>'
-  tpl = tpl.replace(/(?:\/\>)/g, '>')
-
-  // Remove ' >'
-  tpl = tpl.replace(/(?: \>)/g, '>')
-
-  // Remove body and html end tag
-  tpl = tpl.replace('</body>', '')
-  tpl = tpl.replace('</html>', '')
-
-  // Remove comments
-  tpl = tpl.replace(/<!--[\s\S]*?-->/g, '')
-
-  // Get all attributes
-  // Get value of attributes
-  // Filter if quotes removeable
-  try {
-    var attributes = tpl.match(/\s(\w+?)="(.+?)"/g)
-      .map(val => val.substring(0, val.length - 1).split('="'))
-      .filter(val => areQuotesRemoveable(val[1]))
-
-    attributes.forEach(val => {
-      tpl = tpl.replace(val.join('="') + '"', val.join('='))
-    })
-  } catch (err) {}
-
-  templates.views[key] = tpl
+  templates.views[key] = minifyTemplate(templates.views[key])
 })
 
 delete templates.partials

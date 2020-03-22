@@ -1,4 +1,5 @@
 const AWS = require('aws-sdk')
+const zlib = require('zlib')
 
 const s3 = new AWS.S3({
     'accessKeyId': process.env.AWS_ACCESS_KEY_ID,
@@ -89,13 +90,15 @@ aws.s3.deleteBucket = async bucket =>
   })
 
 
-aws.s3.putObject = async (bucket, key, content) =>
+aws.s3.putObject = async (bucket, key, content, contentType = 'text/html') =>
   new Promise((resolve, reject) => {
 
     s3.putObject({
       Bucket: bucket,
       Key: key,
-      Body: content
+      Body: zlib.gzipSync(content),
+      ContentType: contentType,
+      ContentEncoding: 'gzip'
     }).promise().catch(err => reject(err))
 
     resolve()

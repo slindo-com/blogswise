@@ -1,5 +1,6 @@
 const { db } = require('../../libs/db/db.js')
 const { render } = require('../../libs/render/render.js')
+const { generateIndex } = require('../../libs/generator/generator.js')
 
 exports.default = async (req, res) => {
 
@@ -24,12 +25,12 @@ exports.default = async (req, res) => {
 			console.log('ERR', err)
 		})
 
+		generateIndex(article.blog)
+
 		if(req.body.a === 'pre') {
 			res.redirect('/preview/'+ article.id +'/')
 		}
 	} else if (req.body.a === 'change-metadata') {
-
-		console.log(req.body.title)
 
 		article.title = req.body.title
 		article.published = req.body.published
@@ -40,6 +41,8 @@ exports.default = async (req, res) => {
 		}).catch(err => {
 			console.log('ERR', err)
 		})
+
+		generateIndex(article.blog)
 
 		res.redirect('/article/'+ req.params.id +'/options/#success-metadata')
 	}
