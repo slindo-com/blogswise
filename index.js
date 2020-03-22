@@ -1,10 +1,14 @@
+if (process.env.ENVIROMENT === 'dev') {
+  const result = require('dotenv').config()
+}
+
+process.stdout.write('\033c');
+
 const fs = require('fs')
 
 const { Webserver } = require('./libs/webserver/webserver.js')
 
 const helpers = require('./libs/helpers/helpers.js')
-
-process.stdout.write('\033c');
 
 const viewFolders = fs.readdirSync('./views/')
 
