@@ -29,9 +29,9 @@ generateIndex = async blogId =>
 
     const rendered = minifyTemplate(eval('`' + indexTemplate + '`'))
 
-    await aws.s3.putObject(blog.bucket, 'index.html', rendered).catch(err => reject(err))
+    const test = await aws.s3.putObject(blog.bucket, 'index.html', rendered).catch(err => reject(err))
 
-    console.log('Generated')
+    console.log('Generated', blog.bucket, test, rendered)
 
     resolve()
   })
