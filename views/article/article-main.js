@@ -25,7 +25,7 @@ exports.default = async (req, res) => {
 			console.log('ERR', err)
 		})
 
-		await generateIndex(article.blog).catch(err => {
+		generateIndex(article.blog).catch(err => {
 			console.log('ERR', err)
 		})
 
@@ -44,7 +44,7 @@ exports.default = async (req, res) => {
 			console.log('ERR', err)
 		})
 
-		await generateIndex(article.blog).catch(err => {
+		generateIndex(article.blog).catch(err => {
 			console.log('ERR', err)
 		})
 
