@@ -11,6 +11,8 @@ let aws = {
   s3: {}
 }
 
+console.log(s3)
+
 
 aws.s3.createBucket = async name =>
   new Promise(async (resolve, reject) => {
@@ -93,15 +95,18 @@ aws.s3.deleteBucket = async bucket =>
 aws.s3.putObject = async (bucket, key, content, contentType = 'text/html') =>
   new Promise((resolve, reject) => {
 
+    console.log(bucket, key)
+
     s3.putObject({
       Bucket: bucket,
       Key: key,
       Body: zlib.gzipSync(content),
       ContentType: contentType,
       ContentEncoding: 'gzip'
-    }).promise().catch(err => reject(err))
-
-    resolve()
+    }).promise().then(res => {
+      console.log(res)
+      resolve()
+    }).catch(err => reject(err))
   })
 
 
