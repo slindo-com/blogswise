@@ -7,7 +7,7 @@
 			${title}
 		</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" type="text/css" href="STYLE.CSS" />
+		<link rel="stylesheet" type="text/css" href="/style.css" />
 		
 		<meta name="description" content="${description}" />
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
@@ -60,7 +60,12 @@
 	<body>
 
 
-		<header>
+		<header id="header">
+			<h1>
+				<a href="/" title="${title}">
+					${title}
+				</a>
+			</h1>
 			<nav>
 				<ul>
 					<li>
@@ -75,24 +80,32 @@
 
 		<main>
 
-			${articlesRendered.map(article => `
-				<article>
-				   <header>
-					   <h2>
-						   ${article.title}
-					   </h2>
-				   </header>
-				   <section>
-					   <p>
-						   ${article.text}
-					   </p>
-				   </section>
-				   <footer>
-						<time datetime="2020-03-22">
-							22 Mar 2020
-						</time>
-				   </footer>
-				</article>
+			${articlesRendered.map((article, index) => `
+				${index < 10 ? `
+					<article class="article">
+						<header>
+							<h2>
+								<a href="#">
+									${article.title}
+								</a>
+							</h2>
+						</header>
+						<section>
+							<p>
+								${article.text}
+							</p>
+						</section>
+						<footer>
+							<time datetime="2020-03-22">
+								22 Mar 2020
+							</time>
+						</footer>
+					</article>
+				` : `
+					<a href="#">
+						${article.title}
+					</a>
+				`}
 			`).join('')}
 
 		</main>

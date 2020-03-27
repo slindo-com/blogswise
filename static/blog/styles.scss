@@ -1,0 +1,108 @@
+@import "definitions";
+@import "helpers";
+
+
+body {
+	color:#333;
+}
+
+#header {
+	display:flex;
+	max-width: 124*$base;
+	padding:0 4*$base;
+	margin:4*$base auto;
+
+	h1 {
+		flex-grow:1;
+		font-size:28px;
+		line-height:7*$base;
+		font-weight:500;
+
+		a {
+			color:inherit;
+
+			&:hover {
+				color:blue;
+			}
+		}
+	}
+
+	nav {
+		align-self: flex-end;
+
+		ul {
+			display:flex;
+			list-style: none;
+			margin:0 -2*$base 0 0;
+			padding:0;
+		}
+
+		li {
+			margin:0;
+			padding:0;
+		}
+
+		a {
+			display:block;
+			font-size:16px;
+			line-height:7*$base;
+			color:inherit;
+			padding:0 2*$base;
+		}
+	}
+}
+
+
+.article {
+	max-width: 124*$base;
+	padding:0 4*$base;
+	margin:4*$base auto 8*$base auto;
+
+	header {
+		h2 {
+			font-size:24px;
+			line-height: 6*$base;
+			font-weight:500;
+		}
+
+		a {
+			color:inherit;
+
+			&:hover {
+				color:blue;
+			}
+		}
+	}
+
+	section {
+
+		h3 {
+			font-size:20px;
+			line-height:5*$base;		
+			font-weight:500;
+
+			+* {
+				margin-top:2*$base;
+			}
+		}
+
+		p {
+			font-size:17px;
+			line-height: 5*$base;
+
+			+p {
+				margin-top:2*$base;
+			}
+
+			+h2, +h3, +h4 {
+				margin-top:6*$base;
+			}
+		}
+	}
+
+	footer {
+		time {
+
+		}
+	}	
+}

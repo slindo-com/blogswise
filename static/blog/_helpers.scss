@@ -1,0 +1,32 @@
+html, body {
+  font-family: Ubuntu, sans-serif;
+  font-size:14px;
+  min-height:100%;
+}
+
+* {
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+  -webkit-font-smoothing:antialiased;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration:underline;
+  }
+}
+
+
+
+/*
+  HELPERS
+*/
+
+.clearfix:after {
+  content:"";
+  display:table;
+  clear:both;
+}

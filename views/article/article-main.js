@@ -25,9 +25,8 @@ exports.default = async (req, res) => {
 			console.log('ERR', err)
 		})
 
-		generateIndex(article.blog).catch(err => {
-			console.log('ERR', err)
-		})
+		generateIndex(article.blog)
+		generateStyle(article.blog)
 
 		if(req.body.a === 'pre') {
 			res.redirect('/preview/'+ article.id +'/')
@@ -44,12 +43,15 @@ exports.default = async (req, res) => {
 			console.log('ERR', err)
 		})
 
-		generateIndex(article.blog).catch(err => {
-			console.log('ERR', err)
-		})
+		generateIndex(article.blog)
+		generateStyle(article.blog)
 
 		res.redirect('/article/'+ req.params.id +'/options/#success-metadata')
 	}
+
+
+		generateIndex(article.blog)
+		generateStyle(article.blog)
 
 
 	render(req, res, 'article', {

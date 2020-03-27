@@ -49,15 +49,6 @@ getFiles('./templates').forEach((val) => {
 });*/
 
 
-
-
-
-const scss = fs.readFileSync('./static/styles.scss').toString();
-
-var result = sass.renderSync({
-  file: './static/styles.scss'
-});
-
 if (!fs.existsSync('./minified')) {
   fs.mkdirSync('./minified')
 }
@@ -66,11 +57,21 @@ if (!fs.existsSync('./minified/static')) {
   fs.mkdirSync('./minified/static')
 }
 
-fs.writeFileSync('./minified/static/s.css', result.css);
-const css = fs.readFileSync('./minified/static/s.css').toString();
 
-const opts = {}
+var result = sass.renderSync({
+  file: './static/app/styles.scss'
+});
 
-var ress = cssnano.process(css, opts).then(minified => {
+
+var ress = cssnano.process(result.css, {}).then(minified => {
   fs.writeFileSync('./minified/static/s.css', minified.css);
+});
+
+
+var result = sass.renderSync({
+  file: './static/blog/styles.scss'
+});
+
+var ress = cssnano.process(result.css, {}).then(minified => {
+  fs.writeFileSync('./minified/static/b.css', minified.css);
 });

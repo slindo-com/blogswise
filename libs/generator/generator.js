@@ -35,4 +35,19 @@ generateIndex = async blogId =>
   })
 
 
+generateStyle = async blogId =>
+  new Promise(async (resolve, reject) => {
+
+    const blog = await db.findOne('blogs', {
+      id: blogId
+    })
+
+    const css = fs.readFileSync('./minified/static/b.css').toString();
+
+    await aws.s3.putObject(blog.bucket, 'style.css', css, 'text/css').catch(err => reject(err))
+
+    resolve()
+  })
+
+
 exports.generateIndex = generateIndex
