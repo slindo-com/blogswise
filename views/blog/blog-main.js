@@ -12,5 +12,5 @@ exports.default = async (req, res) => {
 		? 'slindo'
 		: hostArr[0]
 
-	request('http://slindo-blog.s3-website-us-east-1.amazonaws.com/'+ req.params.id +'/').pipe(res)
+	request('http://slindo.blog.s3-website-us-east-1.amazonaws.com/'+ req.params.id +'/').pipe(res)
 }
