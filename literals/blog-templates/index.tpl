@@ -63,7 +63,7 @@
 		<header id="header">
 			<h1>
 				<a href="/" title="${title}">
-					${title}
+					${blogTitle}
 				</a>
 			</h1>
 			<nav>
@@ -85,7 +85,7 @@
 					<article class="article">
 						<header>
 							<h2>
-								<a href="#">
+								<a href="/${article.slug}/">
 									${article.title}
 								</a>
 							</h2>
@@ -102,7 +102,7 @@
 						</footer>
 					</article>
 				` : `
-					<a href="#">
+					<a href="/${article.slug}/">
 						${article.title}
 					</a>
 				`}
@@ -111,7 +111,7 @@
 		</main>
 
 
-		<footer>
+		<!-- <footer>
 			<nav>
 				<ul>
 					<li>
@@ -121,7 +121,7 @@
 					</li>
 				</ul>
 			</nav>
-		</footer>
+		</footer> -->
 
 
 	</body>

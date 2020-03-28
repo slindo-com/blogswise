@@ -132,6 +132,21 @@ exports.minifyTemplate = tpl => {
 }
 
 
+exports.slugify = string => {
+  return string
+    .toString()
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^\w\-]+/g, "")
+    .replace(/\-\-+/g, "-")
+    .replace(/^-+/, "")
+    .replace(/-+$/, "")
+    .trim()
+}
+
+
+
 exports.colors = [
   '#4D4D4D', '#B33C24', '#B37D47', '#B3A147', '#A1B347', '#7DB347', '#68B359', 
   '#47B359', '#47B37D', '#47B3A1', '#47A1B3', '#477DB3', '#4759B3', '#5947B3', 

@@ -89,6 +89,16 @@ webserver.addSpecificRoute('/', (req, res) => {
 })
 
 
+webserver.addSpecificRoute('/style.css', (req, res) => {
+
+  if(req.headers.host.split('.')[0] === 'app') {
+    res.redirect('/sign-in/')
+  } else {
+    request('http://slindo-blog.s3-website-us-east-1.amazonaws.com/style.css').pipe(res)
+  }
+})
+
+
 
 webserver.addSpecificRoute('/s', (req, res) => {
   fs.readFile('./minified/static/s.css', (err, content) => {

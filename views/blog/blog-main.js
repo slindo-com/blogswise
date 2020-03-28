@@ -11,30 +11,5 @@ exports.default = async (req, res) => {
 		? 'slindo'
 		: hostArr[0]
 
-	const blog = await db.findOne('blogs', {
-		subdomain
-	})
-
-	if(!blog) {
-		// 404
-	}
-
-	const articles = await db.find('articles', {
-		blog: blog.id
-	})
-
-	const articlesRendered = articles.map(article => {
-		article.text = markdownIt.render(article.text)
-		return article
-	})
-	
-
-	console.log(subdomain, blog)
-
-	render(req, res, 'blog', {
-		title: blog.title,
-		description: blog.description,
-		blog,
-		articles: articlesRendered
-	})
+	request('http://slindo-blog.s3-website-us-east-1.amazonaws.com/'+ req.params.id +'/').pipe(res)
 }
